@@ -1,4 +1,4 @@
-## Jump to reach the objective.
+## Jump, collect coins and avoid slimes to reach the objective.
 
 # Be Careful not to fall!
 
