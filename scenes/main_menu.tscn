@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://chstjmuieh8ey"]
+
+[ext_resource type="Script" uid="uid://ftvnote5hgyw" path="res://scenes/v_box_container.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://c05x1frxs600n" path="res://assets/fonts/PixelOperator8.ttf" id="2_bqqt6"]
+
+[sub_resource type="Gradient" id="Gradient_ekxnf"]
+colors = PackedColorArray(0, 0, 0, 1, 0.173504, 0.0920344, 0.0128305, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bqqt6"]
+gradient = SubResource("Gradient_ekxnf")
+fill_from = Vector2(0.425926, 0.348765)
+fill_to = Vector2(0.876543, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
+bg_color = Color(4.9334e-07, 0.403176, 0.16073, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.176419, 0.176419, 0.176419, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0, 0.66544, 0.284216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(0.527502, 0.322884, 0.0969253, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(18.1616, 10.148)
+texture = SubResource("GradientTexture2D_bqqt6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 21.0
+offset_top = 408.0
+offset_right = 91.0
+offset_bottom = 452.0
+scale = Vector2(5.85823, 4.58576)
+alignment = 1
+script = ExtResource("1_ekxnf")
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+text = "Start"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="VBoxContainer" method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="VBoxContainer" method="_on_quit_pressed"]
